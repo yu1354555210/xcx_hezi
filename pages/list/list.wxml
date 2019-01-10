@@ -1,0 +1,166 @@
+<!--index.wxml-->
+<view class="wrapper">
+  <view class="share">
+      <button class="share-img" openType="share">
+          <image class="gouimg" src="../../images/gou.gif"></image>
+      </button>
+  </view>
+  <view class="share-text" wx:if="{{shareFlag}}" animation="{{animationMiddleHeaderItem}}">点击添加到我的小程序</view>
+  <view class="public-tips">就阿瑟将军大家的姐啊送到家静安寺</view>
+  <button type='default' session-from='{"input_key":"1","reply_key":"2"}' open-type="contact" >咨询客服</button>
+  <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" current="{{swiperCurrent}}"
+    interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item class='top-img'>
+        <image src="{{item}}" bindtap='focusPreviewImage' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="hot-up">
+    <view class="this-title">
+      <view class="title-text">热度飙升</view>
+      <view class="title-more">更多 ></view>
+    </view>
+    <view class="hot-up-list">
+      <view class="hot-up-item" style="background-color: #ffc438;">
+        <view class="hot-up-image">
+          <image src="../../images/quality_bg.jpg"></image>
+        </view>
+        <view class="hot-up-name">传奇来了</view>
+        <view class="hot-up-num">100万人在玩</view>
+        <view class="hot-up-btn" style="background-color: #ff8202;">进入</view>
+      </view>
+      <view class="hot-up-item" style="background-color: #ff5a2d;">
+        <view class="hot-up-image">
+          <image src="../../images/quality_bg.jpg"></image>
+        </view>
+        <view class="hot-up-name">传奇来了</view>
+        <view class="hot-up-num">100万人在玩</view>
+        <view class="hot-up-btn" style="background-color: #ea4113;">进入</view>
+      </view>
+      <view class="hot-up-item" style="background-color: #269aff;">
+        <view class="hot-up-image">
+          <image src="../../images/quality_bg.jpg"></image>
+        </view>
+        <view class="hot-up-name">传奇来了</view>
+        <view class="hot-up-num">100万人在玩</view>
+        <view class="hot-up-btn" style="background-color: #1174fa;">进入</view>
+      </view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class="this-title">
+      <view class="title-text">畅销游戏</view>
+      <view class="title-more">更多 ></view>
+    </view>
+    <view class="hot-mall-list">
+      <view class="hot-mall-item">
+        <view class="hot-mall-image">
+            <image src="../../images/quality_bg.jpg"></image>
+        </view>
+        <view class="hot-mall-body">
+          <view class="hot-mall-top">
+            <text>魔域来了</text>
+            <button class="open-btn">打开</button>
+          </view>
+          <view class="hot-mall-des">骄傲三季度接啊大家骄傲三季度</view>
+          <view class="hot-mall-other">
+            <text>100万人</text>正在玩 
+          </view>
+        </view>
+      </view>
+      <view class="hot-mall-item">
+        <view class="hot-mall-image">
+            <image src="../../images/quality_bg.jpg"></image>
+        </view>
+        <view class="hot-mall-body">
+          <view class="hot-mall-top">
+            <text>魔域来了</text>
+            <button class="open-btn">打开</button>
+          </view>
+          <view class="hot-mall-des">骄傲三季度接啊大家骄傲三季度</view>
+          <view class="hot-mall-other">
+            <text>100万人</text>正在玩 
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class="this-title">
+      <view class="title-text">新游上线</view>
+      <view class="title-more">更多 ></view>
+    </view>
+    <scroll-view scroll-x>
+      <view class="item-box">
+        <view class="item" wx:for="{{6}}">
+          <view class="icon">
+            <image src="../../images/quality_bg.jpg"></image>
+          </view>
+          <view class="game-name">传奇来了</view>
+          <view class="game-other">
+            <span>挂机</span>丨<span>打怪</span>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='section'>
+    <view class="this-title">
+      <view class="title-text">新游上线</view>
+      <view class="title-more">更多 ></view>
+    </view>
+    <scroll-view scroll-x>
+      <view class="item-box">
+        <view class="item" wx:for="{{6}}">
+          <view class="icon">
+            <image src="../../images/quality_bg.jpg"></image>
+          </view>
+          <view class="game-name">传奇来了</view>
+          <view class="game-other">
+            <span>挂机</span>丨<span>打怪</span>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='section'>
+    <view class="this-title">
+      <view class="title-text">新游上线</view>
+      <view class="title-more">更多 ></view>
+    </view>
+    <scroll-view scroll-x>
+      <view class="item-box">
+        <view class="item" wx:for="{{6}}">
+          <view class="icon">
+            <image src="../../images/quality_bg.jpg"></image>
+          </view>
+          <view class="game-name">传奇来了</view>
+          <view class="game-other">
+            <span>挂机</span>丨<span>打怪</span>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='section'>
+    <view class="this-title">
+      <view class="title-text">新游上线</view>
+      <view class="title-more">更多 ></view>
+    </view>
+    <scroll-view scroll-x>
+      <view class="item-box">
+        <view class="item" wx:for="{{6}}">
+          <view class="icon">
+            <image src="../../images/quality_bg.jpg"></image>
+          </view>
+          <view class="game-name">传奇来了</view>
+          <view class="game-other">
+            <span>挂机</span>丨<span>打怪</span>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  
+</view>

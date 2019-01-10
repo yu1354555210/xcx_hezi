@@ -1,0 +1,285 @@
+.public-tips{
+    font-size: 22rpx;
+    color: #fff;
+    height: 80rpx;
+    padding-left: 20rpx;
+    display: flex;
+    align-items: center;
+    background-color: #3e3368;
+}
+
+.swiper-box {
+    height: 230rpx;
+    overflow: hidden;
+    .top-img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        image {
+            width: 100%;
+            height: 100%;
+        }
+        text {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            box-sizing: border-box;
+            padding: 20rpx 40rpx;
+            font-size: 28rpx;
+            color: #fff;
+            width: 100%;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+.hot-up{
+    padding: 0 30rpx 30rpx;
+    overflow: hidden;
+    .this-title{
+        .title-text{
+            text-align: center;
+        }
+        .title-more{
+            margin-right: 0;
+        }
+    }
+}
+.this-title{
+    height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title-text{
+        color: #000;
+        font-size: 30rpx;
+        flex: 1;
+    }
+    .title-more{
+        font-size: 22rpx;
+        color: #595959;
+        margin-right: 30rpx;
+    }
+}
+
+.hot-up-list{
+    display: flex;
+    justify-content: space-between;
+    .hot-up-item{
+        width: 206rpx;
+        height: 376rpx;
+        text-align: center;
+        color: #fff;
+        border-radius: 30rpx;
+        overflow: hidden;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .hot-up-image{
+            width: 150rpx;
+            height: 150rpx;
+            overflow: hidden;
+            margin: 25rpx auto 20rpx;
+            border-radius: 15rpx;
+            image{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .hot-up-name{
+            font-size: 25rpx;
+            margin-bottom: 15rpx;
+            font-weight: bold;
+        }
+        .hot-up-num{
+            font-size: 18rpx;
+            margin-bottom: 30rpx;
+        }
+        .hot-up-btn{
+            font-size: 24rpx;
+            width: 120rpx;
+            height: 60rpx;
+            color: #fff;
+            border-radius: 30rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+    }
+}
+
+.section{
+    padding-left: 30rpx;
+}
+
+.item-box {
+    display: flex;
+    align-content: center;
+    .item {
+        margin-right: 26rpx;
+        transition: transform 0.3s ease;
+        -webkit-transition: transform 0.3s ease;
+        flex: 0 0 140rpx;
+        -webkit-flex: 0 0 140rpx;
+        width: 140rpx;
+        text-align: center;
+        &:last-child{
+            padding-right: 30rpx;
+        }
+        .icon {
+            width: 140rpx;
+            height: 140rpx;
+            box-shadow: 0px 0px 10rpx rgba(167, 167, 167, 0.3);
+            border-radius: 25rpx;
+            image {
+                border-radius: 25rpx;
+                height: 100%;
+            }
+        }
+        .game-name {
+            font-size: 26rpx;
+            color: #000000;
+            margin: 10rpx 0 5rpx;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .game-other {
+            font-size: 20rpx;
+            color: #898989;
+            text {
+                color: #ed3683;
+            }
+        }
+        &:active {
+            transform: scale(0.9);
+            -webkit-transform: scale(0.9);
+        }
+    }
+}
+
+.hot-mall-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30rpx;
+    .hot-mall-image{
+        width: 140rpx;
+        height: 140rpx;
+        border-radius: 20rpx;
+        overflow: hidden;
+        margin-right: 30rpx;
+        image{
+            height: 100%;
+        }
+    }
+    .hot-mall-body{
+        flex: 1;
+        border-bottom: 2rpx solid #ededed;
+        padding: 30rpx 0;
+        .hot-mall-top{
+            height: 60rpx;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text{
+                font-size: 30rpx;
+                color: #000;
+            }
+            .open-btn{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                width: 124rpx;
+                height: 56rpx;
+                color: #1891fc;
+                font-size: 22rpx;
+                border-radius: 28rpx;
+                border: 2rpx solid #d4d4d4;
+                &::after{
+                    border: none;
+                }
+            }
+        }
+        .hot-mall-des{
+            margin: 10rpx 0 20rpx;
+            color: #a8a8a8;
+            font-size: 18rpx;
+        }
+        .hot-mall-other{
+            color: #a8a8a8;
+            font-size: 22rpx;
+            text{
+                color: #1a92fc;
+            }
+        }
+    }
+    &:last-child{
+        border-bottom: 2rpx solid #ededed;
+        .hot-mall-body{
+            border-bottom: 0;
+        }
+    }
+}
+
+.section {
+    &:last-child {
+        margin-bottom: 50rpx;
+    }
+}
+
+.gouimg {
+    width: 143rpx;
+    height: 193rpx;
+}
+
+.share {
+    position: fixed;
+    bottom: 5%;
+    right: 30rpx;
+    z-index: 666;
+}
+
+.share-img {
+    background: none;
+    border: none;
+    width: 150rpx;
+    height: 193rpx;
+    padding: 0;
+}
+
+.share-img::after {
+    border: none;
+}
+
+.share-text{
+    position: fixed;
+    right: 50rpx;
+    top: 20rpx;
+    width: 290rpx;
+    height: 38rpx;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #fff;
+    background-color: #f4c104;
+    border-radius: 19rpx;
+    font-size: 20rpx;
+    z-index: 888;
+    &::after{
+        content: "";
+        position: absolute;
+        right: 78rpx;
+        top: -8rpx;
+        width:0;
+        height:0;
+        border-width:0 10rpx 10rpx;
+        border-style:solid;
+        border-color:transparent transparent #f4c104;/*透明 透明  灰*/
+    }
+}
+
