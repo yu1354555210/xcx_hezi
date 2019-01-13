@@ -1,166 +1,134 @@
 <!--index.wxml-->
 <view class="wrapper">
   <view class="share">
-      <button class="share-img" openType="share">
-          <image class="gouimg" src="../../images/gou.gif"></image>
-      </button>
+    <button class="share-img" openType="share">
+      <image class="gouimg" src="../../images/gou.gif"></image>
+    </button>
   </view>
+
+  <!-- 授权提示弹窗 -->
+<view class="get-userinfo-dialog-container" wx:if="{{!hasUserInfo}}">
+  <view class="get-userinfo-dialog">
+    <view class="get-userinfo-dialog-close open-dialog-close" bindtap="hideSq">
+      <image src="../../images/close.png"></image>
+    </view>
+    <image src="../../images/sq-bg.jpg"></image>
+    <button open-type="getUserInfo" class="sq-btn" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      我知道了
+    </button>
+  </view>
+</view>
+
+
   <view class="share-text" wx:if="{{shareFlag}}" animation="{{animationMiddleHeaderItem}}">点击添加到我的小程序</view>
-  <view class="public-tips">就阿瑟将军大家的姐啊送到家静安寺</view>
-  <button type='default' session-from='{"input_key":"1","reply_key":"2"}' open-type="contact" >咨询客服</button>
+
+
+  <view class="public-tips" wx:if="{{dataList.app.notice.length != ''}}">{{dataList.app.notice}}</view>
+
+  <view class="mask" wx:if="{{openStatus}}"></view>
+  <view class="open-dialog" wx:if="{{openStatus}}">
+    <view class="open-dialog-close" bindtap="hideOpenStatus">
+      <image src="../../images/close.png"></image>
+    </view>
+    <div class="open-dialog-top">
+      <image src="{{openDialogImg}}"></image>
+      <text>{{openDialogName}}</text>
+    </div>
+    <button bindtap="hideOpenStatus" open-type="contact" class="open-dialog-btn" type='default' session-from='{"input_key":"1","reply_key":"{{openCantact}}"}'>回复"1",开始游戏</button>
+  </view>
+
+
+  <!-- <button type='default' session-from='{"input_key":"1","reply_key":"2"}' open-type="contact" >咨询客服</button> -->
   <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" current="{{swiperCurrent}}"
     interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}">
-    <block wx:for="{{imgUrls}}">
+    <block wx:for="{{dataList.banners}}">
       <swiper-item class='top-img'>
-        <image src="{{item}}" bindtap='focusPreviewImage' />
+        <image src="{{item.logo}}" data-type="{{item.game.type}}" data-icon="{{item.game.logo}}" data-preview="{{item.game.type1_logo}}"
+          data-title="{{item.game.title}}" data-appid="{{item.game.type2_appid}}" data-contact="{{item.game.type3_input}}"
+          bindtap='jump' />
       </swiper-item>
     </block>
   </swiper>
   <view class="hot-up">
     <view class="this-title">
-      <view class="title-text">热度飙升</view>
-      <view class="title-more">更多 ></view>
+      <view class="title-text">
+        <view class="icon-title">
+          <image src="{{dataList.app.recommend_logo}}" class="hot-icon"></image>
+        </view>
+        {{dataList.app.recommend_name}}
+      </view>
+      <view class="title-more" bindtap='toDetail' data-contentid="{{hotId}}">更多 ></view>
     </view>
     <view class="hot-up-list">
-      <view class="hot-up-item" style="background-color: #ffc438;">
+      <view class="hot-up-item" wx:if="{{index<3}}" wx:for="{{dataList.recommend}}" style="background-color: {{item.bg_color}}">
         <view class="hot-up-image">
-          <image src="../../images/quality_bg.jpg"></image>
+          <image src="{{item.logo}}"></image>
         </view>
-        <view class="hot-up-name">传奇来了</view>
-        <view class="hot-up-num">100万人在玩</view>
-        <view class="hot-up-btn" style="background-color: #ff8202;">进入</view>
-      </view>
-      <view class="hot-up-item" style="background-color: #ff5a2d;">
-        <view class="hot-up-image">
-          <image src="../../images/quality_bg.jpg"></image>
-        </view>
-        <view class="hot-up-name">传奇来了</view>
-        <view class="hot-up-num">100万人在玩</view>
-        <view class="hot-up-btn" style="background-color: #ea4113;">进入</view>
-      </view>
-      <view class="hot-up-item" style="background-color: #269aff;">
-        <view class="hot-up-image">
-          <image src="../../images/quality_bg.jpg"></image>
-        </view>
-        <view class="hot-up-name">传奇来了</view>
-        <view class="hot-up-num">100万人在玩</view>
-        <view class="hot-up-btn" style="background-color: #1174fa;">进入</view>
+        <view class="hot-up-name">{{item.title}}</view>
+        <view class="hot-up-num">{{item.view_times}}万人在玩</view>
+        <view class="hot-up-btn" data-type="{{item.type}}" data-icon="{{item.logo}}" data-preview="{{item.type1_logo}}"
+          data-title="{{item.title}}" data-appid="{{item.type2_appid}}" data-contact="{{item.type3_input}}" bindtap='jump'
+          style="background-color: {{item.btn_color}};">进入</view>
       </view>
     </view>
   </view>
-  <view class='section'>
+
+  <!-- 竖列表 -->
+  <view class='section' wx:for="{{dataList.shu_categories}}">
     <view class="this-title">
-      <view class="title-text">畅销游戏</view>
-      <view class="title-more">更多 ></view>
+      <view class="title-text">
+        <view class="icon-title">
+          <image src="{{item.category.logo}}"></image>
+        </view>
+        {{item.category.title}}
+      </view>
+      <view class="title-more" bindtap='toDetail' data-contentid="{{item.category.id}}">更多 ></view>
     </view>
     <view class="hot-mall-list">
-      <view class="hot-mall-item">
+      <view class="hot-mall-item" wx:for="{{item.game}}" wx:for-item="it">
         <view class="hot-mall-image">
-            <image src="../../images/quality_bg.jpg"></image>
+          <image src="{{it.logo}}"></image>
         </view>
         <view class="hot-mall-body">
           <view class="hot-mall-top">
-            <text>魔域来了</text>
-            <button class="open-btn">打开</button>
+            <text>{{it.title}}</text>
+            <button class="open-btn" data-type="{{it.type}}" data-icon="{{it.logo}}" data-preview="{{it.type1_logo}}"
+              data-title="{{it.title}}" data-appid="{{it.type2_appid}}" data-contact="{{it.type3_input}}" bindtap='jump'>打开</button>
           </view>
-          <view class="hot-mall-des">骄傲三季度接啊大家骄傲三季度</view>
+          <view class="hot-mall-des">{{it.des}}</view>
           <view class="hot-mall-other">
-            <text>100万人</text>正在玩 
-          </view>
-        </view>
-      </view>
-      <view class="hot-mall-item">
-        <view class="hot-mall-image">
-            <image src="../../images/quality_bg.jpg"></image>
-        </view>
-        <view class="hot-mall-body">
-          <view class="hot-mall-top">
-            <text>魔域来了</text>
-            <button class="open-btn">打开</button>
-          </view>
-          <view class="hot-mall-des">骄傲三季度接啊大家骄傲三季度</view>
-          <view class="hot-mall-other">
-            <text>100万人</text>正在玩 
+            <text>{{it.view_times}}万人</text>正在玩
           </view>
         </view>
       </view>
     </view>
   </view>
-  <view class='section'>
+
+
+  <view class='section' wx:for="{{dataList.categories}}">
     <view class="this-title">
-      <view class="title-text">新游上线</view>
-      <view class="title-more">更多 ></view>
+      <view class="title-text">
+        <view class="icon-title">
+          <image src="{{item.category.logo}}"></image>
+        </view>
+        {{item.category.title}}
+      </view>
+      <view class="title-more" bindtap='toDetail' data-contentid="{{item.category.id}}">更多 ></view>
     </view>
     <scroll-view scroll-x>
       <view class="item-box">
-        <view class="item" wx:for="{{6}}">
+        <view class="item" wx:for="{{item.game}}" wx:for-item="it" data-type="{{it.type}}" data-icon="{{it.logo}}"
+          data-preview="{{it.type1_logo}}" data-title="{{it.title}}" data-appid="{{it.type2_appid}}" data-contact="{{it.type3_input}}"
+          bindtap='jump'>
           <view class="icon">
-            <image src="../../images/quality_bg.jpg"></image>
+            <image src="{{it.logo}}"></image>
           </view>
-          <view class="game-name">传奇来了</view>
+          <view class="game-name">{{it.title}}</view>
           <view class="game-other">
-            <span>挂机</span>丨<span>打怪</span>
+            <text>{{it.label}}</text>
           </view>
         </view>
       </view>
     </scroll-view>
   </view>
-  <view class='section'>
-    <view class="this-title">
-      <view class="title-text">新游上线</view>
-      <view class="title-more">更多 ></view>
-    </view>
-    <scroll-view scroll-x>
-      <view class="item-box">
-        <view class="item" wx:for="{{6}}">
-          <view class="icon">
-            <image src="../../images/quality_bg.jpg"></image>
-          </view>
-          <view class="game-name">传奇来了</view>
-          <view class="game-other">
-            <span>挂机</span>丨<span>打怪</span>
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-  <view class='section'>
-    <view class="this-title">
-      <view class="title-text">新游上线</view>
-      <view class="title-more">更多 ></view>
-    </view>
-    <scroll-view scroll-x>
-      <view class="item-box">
-        <view class="item" wx:for="{{6}}">
-          <view class="icon">
-            <image src="../../images/quality_bg.jpg"></image>
-          </view>
-          <view class="game-name">传奇来了</view>
-          <view class="game-other">
-            <span>挂机</span>丨<span>打怪</span>
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-  <view class='section'>
-    <view class="this-title">
-      <view class="title-text">新游上线</view>
-      <view class="title-more">更多 ></view>
-    </view>
-    <scroll-view scroll-x>
-      <view class="item-box">
-        <view class="item" wx:for="{{6}}">
-          <view class="icon">
-            <image src="../../images/quality_bg.jpg"></image>
-          </view>
-          <view class="game-name">传奇来了</view>
-          <view class="game-other">
-            <span>挂机</span>丨<span>打怪</span>
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-  
 </view>

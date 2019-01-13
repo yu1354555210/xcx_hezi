@@ -1,0 +1,105 @@
+page {
+  background-color: #f7f7f7;
+}
+.category-list .category-item {
+  background-color: #fff;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #f6f6f6;
+  margin-bottom: 20rpx;
+}
+.category-list .category-item .category-fl {
+  display: flex;
+}
+.category-list .category-item .category-image {
+  width: 130rpx;
+  height: 130rpx;
+  margin-right: 15rpx;
+}
+.category-list .category-item .category-image image {
+  height: 100%;
+}
+.category-list .category-item .category-info {
+  color: #9b9b9b;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.category-list .category-item .category-info .category-game-name {
+  font-size: 30rpx;
+  color: #000;
+}
+.category-list .category-item .category-info .category-game-num .heart {
+  color: #f67e40;
+}
+.open-btn {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 124rpx;
+  height: 56rpx;
+  color: #fff;
+  font-size: 22rpx;
+  border-radius: 28rpx;
+  background-color: #ff7a3a;
+  border: 2rpx solid #ff7a3a;
+}
+.open-btn::after {
+  border: none;
+}
+.open-dialog {
+  width: 560rpx;
+  height: 320rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20rpx;
+  z-index: 6666;
+}
+.open-dialog .open-dialog-close {
+  position: absolute;
+  right: -25rpx;
+  top: -25rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.open-dialog .open-dialog-close image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.open-dialog .open-dialog-top {
+  margin-top: -60rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 70rpx;
+}
+.open-dialog .open-dialog-top image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.open-dialog .open-dialog-top text {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.open-dialog .open-dialog-btn {
+  background-color: #1373fb;
+  width: 420rpx;
+  height: 75rpx;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 75rpx;
+  border-radius: 37.5rpx;
+}

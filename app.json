@@ -1,13 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/list/list",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3e3368",
     "navigationBarTitleText": "一刀传世手游盒子",
-    "navigationBarTextStyle":"while"
-  }
+    "navigationBarTextStyle": "while"
+  },
+  "navigateToMiniProgramAppIdList": ["wxe5f52902cf4de896","wxb7da46ae1bb390de"]
 }

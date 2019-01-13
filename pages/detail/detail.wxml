@@ -1,0 +1,29 @@
+<view class="wrapper">
+    <view class="open-dialog" wx:if="{{openStatus}}">
+      <view class="open-dialog-close" bindtap="hideOpenStatus">
+        <image src="../../images/close.png"></image>
+      </view>
+      <div class="open-dialog-top">
+        <image src="{{openDialogImg}}"></image>
+        <text>{{openDialogName}}</text>
+      </div>
+      <button bindtap="hideOpenStatus" open-type="contact" class="open-dialog-btn" type='default'
+        session-from='{"input_key":"1","reply_key":"{{openCantact}}"}'>回复"1",开始游戏</button>
+    </view>
+  <view class="category-list">
+    <view class="category-item" wx:for="{{dataList}}">
+        <view class="category-fl">
+          <view class="category-image"><image src="{{item.logo}}"></image></view>
+          <view class="category-info">
+            <view class="category-game-name">{{item.title}}</view>
+            <view class="category-game-num"><text class="heart">❤❤❤</text>共{{item.view_times}}万人在玩</view>
+            <view class="category-game-dec">{{item.des}}</view>
+          </view>
+        </view>
+        <view class="category-fr">
+          <button class="open-btn" data-type="{{item.type}}" data-icon="{{item.logo}}" data-preview="{{item.type1_logo}}"
+          data-title="{{item.title}}" data-appid="{{item.type2_appid}}" data-contact="{{item.type3_input}}" bindtap='jump'>打开</button>
+        </view>
+    </view>
+  </view>
+</view>
